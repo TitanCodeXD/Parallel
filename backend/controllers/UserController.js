@@ -48,7 +48,16 @@ const register = async(req, res) => {
 
 };
 
+
+// Sign user in
+const login = (req, res) => {
+    res.send("Login");
+};
+
+
+
 module.exports = {
     register, 
+    login,
 };
 
