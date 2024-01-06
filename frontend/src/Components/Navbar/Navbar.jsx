@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav id="nav">
-        <Link to = "/"> <Logo height = "50" width = "100%"/> </Link>
+        <Link className = 'logo' to = "/"> <Logo height = "50" width = "100%"/> </Link>
         <form id = "search-form">
             <BsSearch />
             <input type = 'text' placeholder = 'Pesquisar'></input>

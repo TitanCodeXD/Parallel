@@ -43,3 +43,57 @@
 #nav-links svg {
     font-size: 1.5em;
 }
+
+
+@media (max-width: 500px) {
+    #nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    border-bottom: 1px solid #363636;
+    padding: 0.1em 1em;
+}
+
+
+#search-form {
+    position: relative;
+    width: 10%;
+}
+
+#search-form svg {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    max-height: 33%;
+    opacity: .1;
+}
+
+#search-form input {
+    padding-left: 1em;
+    border: none;
+    border-radius: 5px;
+    width: 150%;
+    margin: 0;
+}
+
+#nav-links {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+#nav-links li {
+    margin-right: 0.8em;
+}
+
+#nav-links span {
+    cursor: pointer;
+}
+
+#nav-links svg {
+    margin-right: 0;
+    font-size: .9em;
+}
+
+  } 
