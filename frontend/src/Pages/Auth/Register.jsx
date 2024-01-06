@@ -16,7 +16,7 @@ const handleSubmit = (e) => {
 
 
   return (
-    <div>
+    <div id = "register">
         <h2>Parallel</h2>
         <p className = 'subtitle'>Cadastre-se compartilhar momentos e ver as fotos de seus amigos.</p>
         <form onSubmit={handleSubmit}>
