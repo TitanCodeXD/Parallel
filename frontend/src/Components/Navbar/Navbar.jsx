@@ -1,8 +1,36 @@
+// React
 import React from 'react'
+import { NavLink, Link } from 'react-router-dom';
+import { BsSearch, BsHouseDoorFill, BsFillPersonFill, BsFillCameraFill } from 'react-icons/bs';
+
+// CSS
+import './Navbar.css';
 
 const Navbar = () => {
+
   return (
-    <div>Navbar</div>
+    <nav id="nav">
+        <Link to = "/">Parallel</Link>
+        <form>
+            <BsSearch />
+            <input type = 'text' placeholder = 'Pesquisar'></input>
+        </form>
+        <ul id = "nav-links">
+            <li>
+            <NavLink to = "">
+                <BsHouseDoorFill />
+            </NavLink>
+            </li>
+
+            <li>
+            <NavLink to = '/login'>Entrar</NavLink>
+            </li>
+
+            <li>
+            <NavLink to = '/register'>Cadastrar</NavLink>
+            </li>
+        </ul>
+    </nav>
   )
 }
 
