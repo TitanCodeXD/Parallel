@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // CSS
 import './Auth.css';
+import Logo from '../../Components/Logo/Logo';
 
 
 const Register = () => {
@@ -17,7 +18,7 @@ const handleSubmit = (e) => {
 
   return (
     <div id = "register">
-        <h2>Parallel</h2>
+        <h2> <Logo height = "70" width = "200"/> </h2>
         <p className = 'subtitle'>Cadastre-se compartilhar momentos e ver as fotos de seus amigos.</p>
         <form onSubmit={handleSubmit}>
         <input type='text' placeholder='Nome'></input>

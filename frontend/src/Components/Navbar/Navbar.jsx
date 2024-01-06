@@ -6,11 +6,14 @@ import { BsSearch, BsHouseDoorFill, BsFillPersonFill, BsFillCameraFill } from 'r
 // CSS
 import './Navbar.css';
 
+// Logo
+import Logo from '../Logo/Logo';
+
 const Navbar = () => {
 
   return (
     <nav id="nav">
-        <Link to = "/">Parallel</Link>
+        <Link to = "/"> <Logo height = "50" width = "100%"/> </Link>
         <form id = "search-form">
             <BsSearch />
             <input type = 'text' placeholder = 'Pesquisar'></input>
