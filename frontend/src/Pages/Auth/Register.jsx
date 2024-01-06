@@ -24,7 +24,7 @@ const handleSubmit = (e) => {
         <input type='email' placeholder='E-mail'></input>
         <input type='password' placeholder='Senha'></input>
         <input type='password' placeholder='Confirme a Senha'></input>
-        <input type = "submit" value = "cadastrar"></input>
+        <input type = "submit" value = "Cadastrar"></input>
         </form>
 
         <p>Já tem conta? <Link to = "/login">Clique aqui.</Link></p>
