@@ -208,7 +208,7 @@ const commentPhoto = async(req, res) => {
     });
 };
 
-// Search photos by title
+// Search photos by title - Funcionlidade de busca de fotos
 const searchPhotos = async(req, res) => {
 
     const {q} = req.query
