@@ -1,8 +1,13 @@
 // React
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useResolvedPath } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// CSS
+
+// Redux
+import {register, reset} from '../../slices/authSlice';
+import { useSelector, useDispatch } from 'react-redux';
+
+// CSS and Logo
 import './Auth.css';
 import Logo from '../../Components/Logo/Logo';
 
@@ -12,6 +17,11 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+
+  const dispatch = useDispatch()
+
+  const {loading, error} = useSelector((state) => state.auth);
 
 
 const handleSubmit = (e) => {
@@ -25,7 +35,16 @@ const handleSubmit = (e) => {
     };
 
     console.log(user);
+    dispatch(register(user));
 };
+
+// Clean all auth states
+useEffect(() => {
+
+  dispatch(reset());
+
+}, [dispatch]);
+
 
   return (
     <div id = "register">
