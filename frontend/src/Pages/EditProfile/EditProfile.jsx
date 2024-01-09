@@ -1,6 +1,9 @@
 // React
 import React from 'react'
 
+// Icons
+import { FaRegEdit } from "react-icons/fa";;
+
 //  CSS
 import './EditProfile.css';
 
@@ -13,7 +16,7 @@ const EditProfile = () => {
 
   return (
     <div id = "edit-profile">
-        <h2>Edite seus dados</h2>
+        <h2>Edite seus dados <FaRegEdit /></h2>
         <p className="subtitle">Adicione uma imagem de perfil e conte mais sobre você...</p>
         {/* Preview da imagem */}
         <form onSubmit = {handleSubmit}>
