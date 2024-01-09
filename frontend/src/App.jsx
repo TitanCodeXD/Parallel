@@ -8,6 +8,9 @@ import './App.css'
 import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 
+//Hooks
+import {useAuth} from './hooks/useAuth';
+
 //Pages
 import Home from './Pages/Home/Home'
 import Login from './Pages/Auth/Login'
@@ -16,6 +19,13 @@ import Register from './Pages/Auth/Register'
 
 
 function App() {
+  const {auth, loading} = useAuth();
+
+  console.log(loading)
+
+  if(loading) {
+    return <p>Carregando...</p>;
+  }
 
   return (
     <>
@@ -28,9 +38,9 @@ function App() {
         <div className = 'container'>
         <Routes>
 
-        <Route path = "/" element = {<Home />}></Route>
-        <Route path = "/login" element = {<Login />}></Route>
-        <Route path = "/register" element = {<Register />}></Route>
+        <Route path = "/" element = {auth ? <Home /> : <Navigate to = "/login"/>}></Route>
+        <Route path = "/login" element = {!auth ? <Login /> : <Navigate to = "/"/>}></Route>
+        <Route path = "/register" element = {!auth ? <Register /> : <Navigate to = "/"/>}></Route>
 
         </Routes>
         </div>
