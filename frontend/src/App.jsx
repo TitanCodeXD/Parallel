@@ -15,6 +15,7 @@ import {useAuth} from './hooks/useAuth';
 import Home from './Pages/Home/Home'
 import Login from './Pages/Auth/Login'
 import Register from './Pages/Auth/Register'
+import EditProfile from './Pages/EditProfile/EditProfile';
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Routes>
 
         <Route path = "/" element = {auth ? <Home /> : <Navigate to = "/login"/>}></Route>
+        <Route path = "/profile" element = {auth ? <EditProfile /> : <Navigate to = "/login"/>}></Route>
         <Route path = "/login" element = {!auth ? <Login /> : <Navigate to = "/"/>}></Route>
         <Route path = "/register" element = {!auth ? <Register /> : <Navigate to = "/"/>}></Route>
 

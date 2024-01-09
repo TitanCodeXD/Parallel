@@ -48,7 +48,7 @@ const Login = () => {
       <h2><Logo height = "70" width = "200"/></h2>
       <p className = 'subtitle'>Faça o login para ver o que há de novo.</p>
       <form onSubmit = {handleSubmit}>
-      <input type = "text" placeholder = 'email' onChange = {(e) => setEmail(e.target.value)} value = {email || ""}></input>
+      <input type = "text" placeholder = 'Email' onChange = {(e) => setEmail(e.target.value)} value = {email || ""}></input>
       <input type = "password" placeholder = 'Senha' onChange = {(e) => setPassword(e.target.value)} value = {password || ""}></input>
       {!loading && <input type = "submit" value = "Entrar"></input>}
       {loading && <input type = "submit" value = "Aguarde..." disabled></input>}
