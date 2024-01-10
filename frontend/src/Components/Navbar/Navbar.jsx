@@ -15,8 +15,9 @@ import {logout, reset} from '../../slices/authSlice';
 // CSS
 import './Navbar.css';
 
-// Logo
+// Logo and Icons
 import Logo from '../Logo/Logo';
+import { IoIosLogOut } from "react-icons/io";
 
 
 const Navbar = () => {
@@ -64,7 +65,7 @@ const Navbar = () => {
             </li>
 
             <li>
-              <span onClick = {handleLogout}>Sair</span>
+              <span onClick = {handleLogout}>Sair  <IoIosLogOut /></span>
             </li>
 
               </>

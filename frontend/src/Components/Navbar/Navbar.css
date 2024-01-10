@@ -7,7 +7,6 @@
     padding: 0.1em 1em;
 }
 
-
 #search-form {
     position: relative;
     width: 20%;
@@ -37,7 +36,17 @@
 }
 
 #nav-links span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    color: rgb(197, 78, 78);
+}
+
+#nav-links span:hover {
+    font-weight: 600;
+    color: red;
+    transition: .4s;
 }
 
 #nav-links svg {
@@ -53,6 +62,10 @@
     background-color: black;
     border-bottom: 1px solid #363636;
     padding: 0.1em 1em;
+}
+
+#nav img{
+    width: 85%;
 }
 
 
@@ -87,8 +100,10 @@
     margin-right: 0.8em;
 }
 
-#nav-links span {
+#nav-links span svg{
+    display: none;
     cursor: pointer;
+    color: rgb(207, 102, 102);
 }
 
 #nav-links svg {
