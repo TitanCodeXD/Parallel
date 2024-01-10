@@ -16,6 +16,7 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/Auth/Login'
 import Register from './Pages/Auth/Register'
 import EditProfile from './Pages/EditProfile/EditProfile';
+import Profile from './Pages/Profile/Profile';
 
 
 
@@ -41,6 +42,7 @@ function App() {
 
         <Route path = "/" element = {auth ? <Home /> : <Navigate to = "/login"/>}></Route>
         <Route path = "/profile" element = {auth ? <EditProfile /> : <Navigate to = "/login"/>}></Route>
+        <Route path = "/users/:id" element = {auth ? <Profile /> : <Navigate to = "/login"/>}></Route>
         <Route path = "/login" element = {!auth ? <Login /> : <Navigate to = "/"/>}></Route>
         <Route path = "/register" element = {!auth ? <Register /> : <Navigate to = "/"/>}></Route>
 
