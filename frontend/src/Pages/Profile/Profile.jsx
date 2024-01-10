@@ -8,6 +8,7 @@ import { uploads } from '../../utils/config';
 import Message from '../../Components/Message/Message';
 import {Link} from "react-router-dom";
 import { BsFillEyeFill, BsPencilFill, BsXLg } from 'react-icons/bs';
+import Loading from '../../Components/Loading/Loading';
 
 // Hooks
 import { useState, useEffect, useRef } from 'react';
@@ -39,7 +40,7 @@ const Profile = () => {
   }, [dispatch, id])
 
   if(loading) {
-    return <p>Carregando...</p>
+    return <Loading />
   }
 
 

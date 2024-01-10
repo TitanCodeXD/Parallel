@@ -7,6 +7,7 @@ import './App.css'
 //Components
 import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
+import Loading from './Components/Loading/Loading';
 
 //Hooks
 import {useAuth} from './hooks/useAuth';
@@ -26,7 +27,7 @@ function App() {
   console.log(loading)
 
   if(loading) {
-    return <p>Carregando...</p>;
+    return <Loading />
   }
 
   return (
