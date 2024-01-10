@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Redux
-import {profile, resetMessage} from '../../slices/userSlice';
+import {profile, resetMessage, updateProfile} from '../../slices/userSlice';
 
 //Components
 import Message from '../../Components/Message/Message';
@@ -51,8 +51,40 @@ const EditProfile = () => {
     }, [user])
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        // Gather user data from states
+        const userData = {
+            name
+        }
+
+        if(profileImage){
+            userData.profileImage = profileImage
+        }
+
+        if(bio) {
+            userData.bio = bio
+        }
+
+        if(password) {
+            userData.password = password
+        }
+
+        // build form data
+        const formData = new FormData()
+
+        Object.keys(userData).forEach((key) => formData.append(key, userData[key]))
+        dispatch(updateProfile(formData));
+        // const userFormData = Object.keys(userData).forEach((key) => formData.append(key, userData[key]))
+        console.log(formData);
+        // formData.append("user", userFormData)
+
+        // await dispatch(updateProfile(userFormData))
+
+        setTimeout(() => {
+            dispatch(resetMessage())
+        }, 2000)
     };
 
     const handleFile = (e) => {
@@ -93,7 +125,10 @@ const EditProfile = () => {
             <span>Quer alterar sua senha?</span>
             <input type = "password" placeholder = 'Digite sua nova senha' onChange = {(e) => setPassword(e.target.value)} value = {password || ""}></input>
         </label>
-        <input type = "submit" value = "Atualizar"></input>
+        {!loading && <input type = "submit" value = "Atualizar"></input>}
+        {loading && <input type = "submit" value = "Aguarde..." disabled></input>}
+        {error && <Message msg = {error} type = "error"/>}
+        {message && <Message msg = {message} type = "success"/>}
         </form>
     </div>
   )
