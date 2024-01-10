@@ -15,10 +15,10 @@ import {logout, reset} from '../../slices/authSlice';
 // CSS
 import './Navbar.css';
 
-// Logo and Icons
+// Logo, Icons and Tooltip Library
 import Logo from '../Logo/Logo';
 import { IoIosLogOut } from "react-icons/io";
-
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
   const {auth} = useAuth();
@@ -45,20 +45,20 @@ const Navbar = () => {
         <ul id = "nav-links">
             {auth ? (
               <>
-              <li>
+              <li data-tooltip-id="my-tooltip" data-tooltip-content="Home">
             <NavLink to = "">
                 <BsHouseDoorFill />
             </NavLink>
             </li>
             {user && (
-              <li>
+              <li data-tooltip-id="my-tooltip" data-tooltip-content="Perfil">
                 <NavLink to = {`/users/${user._id}`}>
                   <BsFillCameraFill/>
                 </NavLink>
               </li>
             )}
 
-            <li>
+            <li data-tooltip-id="my-tooltip" data-tooltip-content="Informações">
               <NavLink to = "profile">
               <BsFillPersonFill />
               </NavLink>
@@ -82,6 +82,7 @@ const Navbar = () => {
             )}
             
         </ul>
+        <Tooltip id="my-tooltip" />
     </nav>
   )
 }
