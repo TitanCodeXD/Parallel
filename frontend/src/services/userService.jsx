@@ -33,7 +33,7 @@ const updateProfile = async(data, token) => {
         console.log(error)
         
     }
-}
+};
 
 const userService = {
     profile,
