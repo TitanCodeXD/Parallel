@@ -52,10 +52,10 @@ export const photoSlice = createSlice({
                 state.photo = action.payload;
                 state.photos.unshift(state.photo);
                 state.message = "Foto publicada com sucesso!";
-            })
+              })
             .addCase(publishPhoto.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload;
+                state.error = action.payload
                 state.photo = {};
             });
     },
