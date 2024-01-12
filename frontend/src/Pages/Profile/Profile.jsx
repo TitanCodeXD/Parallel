@@ -17,10 +17,11 @@ import { useParams } from 'react-router-dom';
 
 // Redux
 import { getUserDetails } from '../../slices/userSlice';
-import { publishPhoto, resetMessage, getUserPhotos } from '../../slices/photoSlice';
+import { publishPhoto, resetMessage, getUserPhotos, deletePhoto } from '../../slices/photoSlice';
 
-// CSS
+// CSS and Tooltip
 import './Profile.css';
+import { Tooltip } from 'react-tooltip'
 
 
 const Profile = () => {
@@ -56,6 +57,12 @@ const Profile = () => {
     setImage(image)
     };
 
+  const resetComponentMessage = () => {
+    setTimeout(() => {
+      dispatch(resetMessage())
+  }, 5000);
+  }
+
   const submitHandle = (e) => {
     e.preventDefault();
 
@@ -77,10 +84,18 @@ dispatch(publishPhoto(formData))
 
     setTitle("");
 
-    setTimeout(() => {
-      dispatch(resetMessage())
-  }, 2000);
+    resetComponentMessage();
   };
+
+  // Delete a photo
+  const handleDelete = (id) => {
+    var confirmacao = window.confirm("Você tem certeza que deseja excluir esta foto?");
+    if(confirmacao) {
+      dispatch(deletePhoto(id));
+      resetComponentMessage();
+    }
+  };
+
 
   if(loading) {
     return <Loading />
@@ -134,10 +149,10 @@ dispatch(publishPhoto(formData))
               {id === userAuth._id ? (
                 <div className = 'actions'> 
                   <Link to = {`/photos/${photo._id}`}>
-                    <BsFillEyeFill />
+                    <BsFillEyeFill data-tooltip-id="my-tooltip" data-tooltip-content="Vizualizar"/>
                   </Link>
-                  <BsPencilFill />  
-                  <BsXLg />
+                  <BsPencilFill data-tooltip-id="my-tooltip" data-tooltip-content="Editar"/>  
+                  <BsXLg onClick = {() => handleDelete(photo._id)} data-tooltip-id="my-tooltip" data-tooltip-content="Excluir"/>
                 </div>
               ) : (<Link className = "btn" to = {`/photos/${photo._id}`}>
                 Ver
@@ -148,6 +163,7 @@ dispatch(publishPhoto(formData))
           {photos.length === 0 && <p>Ainda não há fotos publicadas.</p>}
           </div>
         </div>
+        <Tooltip id="my-tooltip" />
     </div>
   )
 }
