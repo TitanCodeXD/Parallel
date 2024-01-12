@@ -115,8 +115,10 @@ dispatch(publishPhoto(formData))
             {loadingPhoto && <input type = "submit" value = "Aguarde..." disabled></input>}
           </form>
           </div>
+          <div> 
           {errorPhoto && <Message msg = {errorPhoto} type = "error" />}
           {messagePhoto && <Message msg = {messagePhoto} type = "success" />}
+          </div>
           </>
         )}
         <div className = 'user-photos'>
@@ -130,7 +132,13 @@ dispatch(publishPhoto(formData))
               />
               )}
               {id === userAuth._id ? (
-                <p>actions</p>
+                <div className = 'actions'> 
+                  <Link to = {`/photos/${photo._id}`}>
+                    <BsFillEyeFill />
+                  </Link>
+                  <BsPencilFill />  
+                  <BsXLg />
+                </div>
               ) : (<Link className = "btn" to = {`/photos/${photo._id}`}>
                 Ver
                 </Link>
