@@ -7,7 +7,6 @@ import { uploads } from '../../utils/config';
 //Components
 import Message from '../../Components/Message/Message';
 import {Link} from "react-router-dom";
-import { BsFillEyeFill, BsPencilFill, BsXLg } from 'react-icons/bs';
 import Loading from '../../Components/Loading/Loading';
 
 // Hooks
@@ -19,9 +18,10 @@ import { useParams } from 'react-router-dom';
 import { getUserDetails } from '../../slices/userSlice';
 import { publishPhoto, resetMessage, getUserPhotos, deletePhoto, updatePhoto } from '../../slices/photoSlice';
 
-// CSS and Tooltip
+// CSS, Icons and Tooltip
 import './Profile.css';
 import { Tooltip } from 'react-tooltip'
+import { BsFillEyeFill, BsPencilFill, BsXLg, BsFillPersonFill  } from 'react-icons/bs';
 
 
 const Profile = () => {
@@ -161,10 +161,10 @@ dispatch(publishPhoto(formData))
             <img 
             src = {`${uploads}/users/${user.profileImage}`} 
             alt = {user.name}
-            />
+            /> 
           )}
           <div className = 'profile-description'>
-            <h2>{user.name}</h2>
+            <h2>{user.name} <Link to = "/profile">Editar Informações <BsFillPersonFill /></Link></h2> 
             <p>{user.bio}</p>
           </div>
         </div>
