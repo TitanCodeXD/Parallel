@@ -164,7 +164,7 @@ dispatch(publishPhoto(formData))
             /> 
           )}
           <div className = 'profile-description'>
-            <h2>{user.name} <Link to = "/profile">Editar Informações <BsFillPersonFill /></Link></h2> 
+            <h2>{user.name}  {id === userAuth._id && <Link to = "/profile">Editar Informações <BsFillPersonFill /></Link>}</h2> 
             <p>{user.bio}</p>
           </div>
         </div>
