@@ -17,7 +17,7 @@ import { useParams } from 'react-router-dom';
 
 // Redux
 import { getUserDetails } from '../../slices/userSlice';
-import { publishPhoto, resetMessage, getUserPhotos, deletePhoto } from '../../slices/photoSlice';
+import { publishPhoto, resetMessage, getUserPhotos, deletePhoto, updatePhoto } from '../../slices/photoSlice';
 
 // CSS and Tooltip
 import './Profile.css';
@@ -34,10 +34,14 @@ const Profile = () => {
   const {user: userAuth} = useSelector((state) => state.auth)
   const {photos, loading: loadingPhoto, message: messagePhoto, error: errorPhoto} = useSelector((state) => state.photo);
 
-
+  //States Inclusão
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
 
+  //States para edição
+  const [editId, setEditId] = useState("");
+  const [editImage, setEditImage] = useState("");
+  const [editTitle, setEditTitle] = useState("");
 
   // New form and edit forms refs
     const newPhotoForm = useRef();
@@ -96,6 +100,54 @@ dispatch(publishPhoto(formData))
     }
   };
 
+  // Show or hide forms
+  const hideOrShowForms = () => {
+    newPhotoForm.current.classList.toggle("hide")
+    editPhotoForm.current.classList.toggle("hide")
+  };
+
+
+  // Update a photo
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    const photoData = {
+      title: editTitle,
+      id: editId
+    }
+
+    dispatch(updatePhoto(photoData))
+
+    resetComponentMessage();
+
+  };
+
+
+  // Open edit form
+  const handleEdit = (photo) => {
+
+    if(editPhotoForm.current.classList.contains("hide")) {
+      hideOrShowForms();
+    }
+
+    setEditId(photo._id);
+    setEditTitle(photo.title);
+    setEditImage(photo.image);
+
+
+    const imagem = document.getElementById('imagem-edit');
+
+    
+        window.scrollTo({
+            top: imagem,
+            behavior: 'smooth'
+  });
+  };
+
+  const handleCancelEdit = () => {
+    hideOrShowForms();
+  };
+
 
   if(loading) {
     return <Loading />
@@ -106,7 +158,10 @@ dispatch(publishPhoto(formData))
     <div id = "profile">
         <div className = 'profile-header'>
           {user.profileImage && (
-            <img src = {`${uploads}/users/${user.profileImage}`} alt = {user.name}/>
+            <img 
+            src = {`${uploads}/users/${user.profileImage}`} 
+            alt = {user.name}
+            />
           )}
           <div className = 'profile-description'>
             <h2>{user.name}</h2>
@@ -130,6 +185,37 @@ dispatch(publishPhoto(formData))
             {loadingPhoto && <input type = "submit" value = "Aguarde..." disabled></input>}
           </form>
           </div>
+
+
+
+
+          <div className = 'edit-photo hide' ref ={editPhotoForm} id = "imagem-edit">
+            <p>Editando:</p>
+            {editImage && (
+              <img 
+              src = {`${uploads}/photos/${editImage}`} 
+              alt = {editTitle}
+              />
+            )}
+            <form onSubmit = {handleUpdate}>
+            
+              <input 
+              type = "text" 
+              placeholder = 'Insira o novo título'
+              onChange = {(e) => setEditTitle(e.target.value)} 
+              value = {editTitle || ""}></input>
+          
+              <input type = "submit" value = "Atualizar" />
+              <button className = 'cancel-btn' onClick = {handleCancelEdit}>
+                Cancelar edição
+              </button>
+            </form>
+          </div>
+
+
+
+
+
           <div> 
           {errorPhoto && <Message msg = {errorPhoto} type = "error" />}
           {messagePhoto && <Message msg = {messagePhoto} type = "success" />}
@@ -151,7 +237,7 @@ dispatch(publishPhoto(formData))
                   <Link to = {`/photos/${photo._id}`}>
                     <BsFillEyeFill data-tooltip-id="my-tooltip" data-tooltip-content="Vizualizar"/>
                   </Link>
-                  <BsPencilFill data-tooltip-id="my-tooltip" data-tooltip-content="Editar"/>  
+                  <BsPencilFill data-tooltip-id="my-tooltip" data-tooltip-content="Editar" onClick = {() => handleEdit(photo)}/>  
                   <BsXLg onClick = {() => handleDelete(photo._id)} data-tooltip-id="my-tooltip" data-tooltip-content="Excluir"/>
                 </div>
               ) : (<Link className = "btn" to = {`/photos/${photo._id}`}>

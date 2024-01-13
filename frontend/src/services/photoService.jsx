@@ -55,7 +55,7 @@ const deletePhoto = async(id, token) => {
 // Update a photo
 const updatePhoto = async(data, id, token) => {
 
-    const config = ("PUT", data, token)
+    const config = requestConfig("PUT", data, token);
 
     try {
         

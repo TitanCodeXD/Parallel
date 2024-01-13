@@ -54,7 +54,9 @@
 }
 
 .edit-photo img{
-    width: 100%;
+    width: 60%;
+    height: 60;
+    margin-left: 22vh;
     margin-bottom: 1em;
 }
 
@@ -129,6 +131,7 @@
 
 .edit-photo img{
     width: 100%;
+    margin: auto;
     margin-bottom: 1em;
 }
   } 
@@ -148,6 +151,13 @@
     .photo img {
         width: 100%;
     }
+
+    .edit-photo img{
+        width: 80%;
+        height: 80%;
+        margin-left: 5vh;
+        margin-bottom: 1em;
+    }
     
     .actions {
         display: flex;
@@ -160,4 +170,13 @@
         cursor: pointer;
     }
     
+  }
+
+  @media (min-width: 1000px) and (max-width: 1500px) {
+    .edit-photo img{
+        width: 70%;
+        height: 70%;
+        margin-left: 12vh;
+        margin-bottom: 1em;
+    }
   }
