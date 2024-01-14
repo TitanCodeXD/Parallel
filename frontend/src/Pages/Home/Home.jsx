@@ -6,6 +6,7 @@ import LikeContainer from '../../Components/LikeContainer/LikeContainer';
 import PhotoItem from '../../Components/PhotoItem/PhotoItem';
 import { Link } from 'react-router-dom';
 import Loading from '../../Components/Loading/Loading';
+import Message from '../../Components/Message/Message';
 
 // Hooks
 import { useEffect } from 'react';
@@ -36,7 +37,7 @@ const Home = () => {
   }, [dispatch])
 
   // Like a photo
-  const handleLike = (photo) => {
+  const handleLike = (photo = null) => {
 
     dispatch(like(photo._id))
 

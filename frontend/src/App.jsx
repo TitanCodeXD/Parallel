@@ -19,6 +19,7 @@ import Register from './Pages/Auth/Register'
 import EditProfile from './Pages/EditProfile/EditProfile';
 import Profile from './Pages/Profile/Profile';
 import Photo from './Pages/Photo/Photo';
+import Search from './Pages/Search/Search';
 
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path = "/users/:id" element = {auth ? <Profile /> : <Navigate to = "/login"/>}></Route>
         <Route path = "/login" element = {!auth ? <Login /> : <Navigate to = "/"/>}></Route>
         <Route path = "/register" element = {!auth ? <Register /> : <Navigate to = "/"/>}></Route>
+        <Route path = "/search" element = {auth ? <Search /> : <Navigate to = "/login"/>}></Route>
         <Route path = "/photos/:id" element = {auth ? <Photo /> : <Navigate to = "/login"/>}></Route>
         </Routes>
         </div>
