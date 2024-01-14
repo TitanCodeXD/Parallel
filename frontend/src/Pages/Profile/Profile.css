@@ -39,6 +39,7 @@
 
 
 .new-photo {
+    width: 100%;
     padding: 1.5em;
     border-bottom: 1px solid #363636;
 }

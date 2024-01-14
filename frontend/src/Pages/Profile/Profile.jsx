@@ -227,10 +227,14 @@ dispatch(publishPhoto(formData))
           <div className = 'photos-container'>
           {photos && photos.map((photo) => (
             <div className="photo" key = {photo._id}>
-              {photo.image && (<img 
+              {photo.image && (
+              <Link to = {`/photos/${photo._id}`}>
+              <img 
               src = {`${uploads}/photos/${photo.image}`} 
               alt = {photo.title}
               />
+              </Link>
+
               )}
               {id === userAuth._id ? (
                 <div className = 'actions'> 
