@@ -7,7 +7,7 @@ import React from 'react'
 import './LikeContainer.css';
 import {BsHeart, BsHeartFill, BsFillHeartPulseFill} from 'react-icons/bs'
 import photoService from '../../services/photoService';
-import HeartFill from '../../img/heart-solid.svg'
+import HeartFill from '../../img/heart-solid (1).svg'
 
 const LikeContainer = ({photo, user, handleLike}) => {
 
