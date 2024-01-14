@@ -1,11 +1,23 @@
-#login,
+#login{
+    border: 1px solid #363636;
+    background-color: black;
+    padding: 1.5em 2em;
+    max-width: 30%;
+    margin: 2em auto;
+}
+
 #register {
     border: 1px solid #363636;
     background-color: black;
     padding: 1.5em 2em;
-    max-width: 33%;
+    max-width: 27%;
     margin: 2em auto;
 }
+
+#register input[type=submit]{
+    width: 99%;
+  }
+
 
 #login h2,
 #register h2 {
@@ -22,6 +34,7 @@
 
 #login form,
 #register form {
+    position: relative;
     padding-bottom: 1.5em;
     margin-bottom: 1.5em;
     border-bottom: 1px solid #363636;
@@ -38,6 +51,90 @@
     color: #0094f6;
 }
 
+.container-logo {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#login .email-container > input {
+    width: 87%;
+}
+
+#login .password-container > input {
+    width: 87%;
+}
+
+#login .email-container > svg {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+#login .password-container > svg {
+    position: absolute;
+    top: 55px;
+    left: 5px;
+}
+
+#register .email-container > svg {
+    position: absolute;
+    top: 57px;
+    left: 5px;
+}
+
+#register .email-container > input {
+    width: 92%;
+}
+
+#register .password-container{
+    position: relative;
+}
+
+#register .password-container > svg {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+#register .password-container > input {
+    width: 92%;
+}
+
+
+#login input,
+#register input {
+    padding-left: 27px;
+}
+
+#register .name-container {
+    position: relative;
+}
+
+#register .name-container > svg {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+#register .name-container > input {
+    width: 92%;
+}
+
+#register .confirmPassword-container {
+    position: relative;
+}
+
+#register .confirmPassword-container > svg {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+#register .confirmPassword-container > input {
+    width: 92%;
+}
 
 @media (max-width: 800px) {
     #login,
@@ -79,4 +176,18 @@
     font-weight: bold;
     color: #0094f6;
 }
-  } 
+
+} 
+
+@media (max-width: 1350px) {
+
+    .login-animation {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #register input[type=submit]{
+        width: 105%;
+      }
+}
