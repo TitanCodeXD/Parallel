@@ -1,0 +1,37 @@
+#home {
+    width: 24%;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+#home .btn {
+    display: block;
+    max-width: 80px;
+    text-align: center;
+    margin: 0.5em 0 2em 0;
+}
+
+.no-photos {
+    text-align: center;
+}
+
+.no-photos a{
+    color: #0094f6;
+}
+
+@media (max-width: 1000px) {
+    #home {
+        width: 60%;
+        margin: 0 auto;
+        padding-top: 2em;
+        font-size: 1.3vh;
+    }
+
+    #home .btn {
+        display: block;
+        max-width: 55px;
+        text-align: center;
+        margin: 0.5em 0 2em 0;
+    }
+    
+}
