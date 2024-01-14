@@ -27,7 +27,7 @@ const Home = () => {
   const resetMessage = useResetComponentMessage(dispatch);
 
   const {user} = useSelector((state) => state.auth);
-  const {photos, loading} = useSelector((state) => state.photo);
+  const {photos, loading, error, message} = useSelector((state) => state.photo);
 
   // Load all photos
   useEffect(() => {
@@ -37,12 +37,12 @@ const Home = () => {
   }, [dispatch])
 
   // Like a photo
-  const handleLike = (photo = null) => {
+  const handleLike = (photo) => {
 
-    dispatch(like(photo._id))
+    dispatch(like(photo._id));
 
     resetMessage();
-  }
+  };
 
   if(loading) {
     return <Loading />
@@ -56,6 +56,10 @@ const Home = () => {
         <div key = {photo._id}>
           <PhotoItem photo = {photo}/>
           <LikeContainer photo = {photo} user = {user} handleLike = {handleLike}/>
+          <div className = 'message-container'>
+        {error && <Message msg = {error} type = "error"/>}
+        {message && <Message msg = {message} type = "success"/>}
+        </div>
           <Link className = 'btn' to = {`/photos/${photo._id}`}>Ver mais</Link>
         </div>
       ))}
