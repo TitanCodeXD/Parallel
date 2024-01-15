@@ -4,7 +4,9 @@ const express = require("express")
 const path = require("path")
 const cors = require("cors")
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
+
+
 
 const app = express()
 
@@ -29,3 +31,5 @@ app.use(router)
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
 });
+
+console.log("PORT:", process.env.PORT);
