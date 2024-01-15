@@ -1,0 +1,3 @@
+[build]
+  command = "npm run build"
+  functions = "backend/functions"  # Se usar funções serverless
