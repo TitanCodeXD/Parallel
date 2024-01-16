@@ -17,7 +17,7 @@ const LikeContainer = ({photo, user, handleLike}) => {
         {photo.likes && user && (
             <>
                 {photo.likes.includes(user._id) ? (
-                    <BsHeartFill />
+                    <BsHeartFill style={{ color: 'red' }}/>
                 ) : (
                     <BsHeart onClick = {() => handleLike(photo)}/>
                 )}
