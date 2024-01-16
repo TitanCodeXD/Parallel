@@ -16,8 +16,8 @@ app.use(express.urlencoded({extended: false}));
 
 // Solve CORS
 app.use(cors({credentials: true, 
-    origin: "*",
-    exposedHeaders: ['Authorization', 'Custom-Header'],
+    origin: "https://parallel-two.vercel.app",
+    exposedHeaders: ['authorization'],
 })); //Padrão "http://localhost:3000"
 
 // Upload directory
