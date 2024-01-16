@@ -1,5 +1,5 @@
-export const api = import.meta.env.API_URL || "http://localhost:5000/api"
-export const uploads = import.meta.env.UPLOADS_URL || "http://localhost:5000/uploads"
+export const api = import.meta.env.VITE_API_URL //import.meta.env.API_URL || "http://localhost:5000/api"
+export const uploads = import.meta.env.VITE_API_URL //import.meta.env.UPLOADS_URL || "http://localhost:5000/uploads"
 
 export const requestConfig = (method, data, token = null, image = null) => {
 
