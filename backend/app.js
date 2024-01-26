@@ -20,7 +20,7 @@ app.use(cors({credentials: true,
 })); 
 
 // Upload directory
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // DB Conecction
 require("./config/db.js");

@@ -24,7 +24,7 @@ import './Photo.css';
 import LikeContainer from '../../Components/LikeContainer/LikeContainer';
 
 const Photo = () => {
-    const {id} = useParams()
+    const {id} = useParams();
 
     const dispatch = useDispatch();
 

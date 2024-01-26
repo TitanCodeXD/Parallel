@@ -29,3 +29,6 @@ const LikeContainer = ({photo, user, handleLike}) => {
 }
 
 export default LikeContainer
+
+
+
