@@ -90,9 +90,12 @@ const Photo = () => {
             {photo.comments.map((comment) => (
                 <div className = 'comment' key = {comment.comment}> 
                     <div className="author">
-                      {comment.userImage && (
-                         <img src = {`${uploads}/users/${comment.userImage}`} alt = {comment.userName}/>
-                      )}
+                      
+                      { 
+                         <img src = {comment.userImage} alt = {comment.userName}/>
+
+                        }
+
                       <Link to = {`/users/${comment.userId}`}>
                         <p>{comment.userName}</p>
                       </Link>
