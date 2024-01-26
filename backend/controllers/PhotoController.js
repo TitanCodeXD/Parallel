@@ -7,7 +7,10 @@ const mongoose = require("mongoose");
 const insertPhoto = async(req, res) => {
 
     const {title} = req.body
-    const image = req.file.filename
+    //const image = req.file.filename
+
+    const imageUrl = req.file.location //S3
+    console.log("URL da imagem:", imageUrl);
 
     const reqUser = req.user
 
@@ -15,10 +18,11 @@ const insertPhoto = async(req, res) => {
 
     // Create a photo
     const newPhoto = await Photo.create({
-        image,
+        //image,
         title,
         userId: user._id,
         userName: user.name,
+        url: imageUrl,
     });
 
     // If photo was create succesfuly, return data

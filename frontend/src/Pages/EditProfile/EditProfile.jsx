@@ -31,7 +31,7 @@ const EditProfile = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [profileImage, setImageProfile] = useState("");
+    const [profileUrl, setProfileUrl] = useState("");
     const [bio, setBio] = useState("");
     const [previewImage, setPreviewImage] = useState("");
 
@@ -59,8 +59,8 @@ const EditProfile = () => {
             name
         }
 
-        if(profileImage){
-            userData.profileImage = profileImage
+        if(profileUrl){
+            userData.profileUrl = profileUrl
         }
 
         if(bio) {
@@ -94,18 +94,18 @@ const EditProfile = () => {
     setPreviewImage(image)
     
     // Update image state
-    setImageProfile(image)
+    setProfileUrl(image)
     };
 
   return (
     <div id = "edit-profile">
         <h2>Edite seus dados <FaRegEdit /></h2>
         <p className="subtitle">Adicione uma imagem de perfil e conte mais sobre você...</p>
-        {(user.profileImage || previewImage) && (
+        {(user.profileUrl || previewImage) && (
             <img 
             className = 'profile-image'
             src = {
-                previewImage ? URL.createObjectURL(previewImage) : `${uploads}/users/${user.profileImage}`
+                previewImage ? URL.createObjectURL(previewImage) : `${user.profileUrl}`
             }
             alt = {user.name}
             />

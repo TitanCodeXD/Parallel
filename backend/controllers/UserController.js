@@ -90,10 +90,10 @@ const update = async(req, res) => {
     
     const {name, password, bio} = req.body
 
-    let profileImage = null
+    let profileUrl = null
 
     if(req.file) {
-        profileImage = req.file.filename
+        profileUrl = req.file.location
     }
 
     const reqUser = req.user
@@ -112,8 +112,8 @@ const update = async(req, res) => {
     user.password = passwordHash
     }
 
-    if(profileImage){
-        user.profileImage = profileImage
+    if(profileUrl){
+        user.profileUrl = profileUrl
     }
 
     if(bio) {

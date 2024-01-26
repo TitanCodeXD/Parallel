@@ -36,7 +36,7 @@ const Profile = () => {
 
   //States Inclusão
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   //States para edição
   const [editId, setEditId] = useState("");
@@ -56,9 +56,9 @@ const Profile = () => {
   }, [dispatch, id])
 
   const handleFile = (e) => {
-    const image = e.target.files[0]
+    const imageUrl = e.target.files[0]
 
-    setImage(image)
+    setImageUrl(imageUrl)
     };
 
   const resetComponentMessage = () => {
@@ -72,7 +72,7 @@ const Profile = () => {
 
     const photoData = {
       title,
-      image
+      imageUrl
     };
 
     // Build form data
@@ -132,7 +132,7 @@ dispatch(publishPhoto(formData))
 
     setEditId(photo._id);
     setEditTitle(photo.title);
-    setEditImage(photo.image);
+    setEditImage(photo.url);
 
 
     const imagem = document.getElementById('imagem-edit');
@@ -157,9 +157,9 @@ dispatch(publishPhoto(formData))
   return (
     <div id = "profile">
         <div className = 'profile-header'>
-          {user.profileImage && (
+          {user.profileUrl && (
             <img 
-            src = {`${uploads}/users/${user.profileImage}`} 
+            src = {user.profileUrl} 
             alt = {user.name}
             /> 
           )}
@@ -193,7 +193,7 @@ dispatch(publishPhoto(formData))
             <p>Editando:</p>
             {editImage && (
               <img 
-              src = {`${uploads}/photos/${editImage}`} 
+              src = {editImage} 
               alt = {editTitle}
               />
             )}
@@ -227,10 +227,10 @@ dispatch(publishPhoto(formData))
           <div className = 'photos-container'>
           {photos && photos.map((photo) => (
             <div className="photo" key = {photo._id}>
-              {photo.image && (
+              {photo.url && (
               <Link to = {`/photos/${photo._id}`}>
               <img 
-              src = {`${uploads}/photos/${photo.image}`} 
+              src = {photo.url} 
               alt = {photo.title}
               />
               </Link>

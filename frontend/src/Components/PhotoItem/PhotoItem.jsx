@@ -14,8 +14,8 @@ import './PhotoItem.css';
 const PhotoItem = ({photo}) => {
   return (
     <div className = 'photo-item'>
-        {photo.image && (
-            <img src = {`${uploads}/photos/${photo.image}`} alt = {photo.title}/>
+        {photo.url && (
+            <img src = {photo.url} alt = {photo.title}/>
         )}
         <h2>{photo.title}</h2>
         <p className = 'photo-author'>

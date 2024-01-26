@@ -16,8 +16,7 @@ app.use(express.urlencoded({extended: false}));
 
 // Solve CORS
 app.use(cors({credentials: true, 
-    origin: "*", //Padrão "http://localhost:3000"
-    exposedHeaders: ['authorization'],
+    origin: "*", //Padrão "http://localhost:3000" - "https://parallel-service.onrender.com" - "*"
 })); 
 
 // Upload directory
