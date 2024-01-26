@@ -1,5 +1,5 @@
 # Parallel
-Um site voltado para o estudo e prática do React, Express e Mongoose. Com a ideia de ser uma espécie de 'Instagram', tendo Registro, possibilidade de Postar fotos, criar perfil, comentar fotos e curtir.
+Um site voltado para o estudo e prática do React, Express, Mongoose e AWS S3 de armazenamento em Nuvem. Com a ideia de ser uma espécie de 'Instagram', tendo Registro, possibilidade de Postar fotos, criar perfil, comentar fotos e curtir.
 
 - Express
 - MongoDB
