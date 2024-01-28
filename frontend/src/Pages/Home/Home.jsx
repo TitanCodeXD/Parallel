@@ -52,7 +52,7 @@ const Home = () => {
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     const scrollHeight = document.documentElement.scrollHeight;
   
-    if (scrollTop + windowHeight >= scrollHeight - 50) {
+    if (scrollTop + windowHeight >= scrollHeight - 150) {
       // Tempo
       setShowLoading(true);
       setTimeout(() => {
