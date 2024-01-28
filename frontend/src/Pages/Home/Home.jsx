@@ -9,7 +9,7 @@ import Loading from '../../Components/Loading/Loading';
 import Message from '../../Components/Message/Message';
 
 // Hooks
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useResetComponentMessage } from '../../hooks/useResetComponentMessage';
 
@@ -29,6 +29,9 @@ const Home = () => {
   const {user} = useSelector((state) => state.auth);
   const {photos, loading, error, message} = useSelector((state) => state.photo);
 
+  const [visiblePhotos, setVisiblePhotos] = useState(5); // Número inicial de fotos visíveis
+  const [showLoading, setShowLoading] = useState(false);
+
   // Load all photos
   useEffect(() => {
 
@@ -44,6 +47,28 @@ const Home = () => {
     resetMessage();
   };
 
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      setShowLoading(true);
+  
+      // Adiando o aumento da variável visiblePhotos por 2 segundos
+      setTimeout(() => {
+        setVisiblePhotos((prevVisiblePhotos) => prevVisiblePhotos + 5);
+        setShowLoading(false);
+      }, 900);
+    }
+  };
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   if(loading) {
     return <Loading />
   }
@@ -52,7 +77,7 @@ const Home = () => {
 
 
     <div id = "home">
-      {photos && photos.map((photo) => (
+      {photos && photos.slice(0, visiblePhotos).map((photo, index) => (
         <div key = {photo._id}>
           <PhotoItem photo = {photo}/>
           <LikeContainer photo = {photo} user = {user} handleLike = {handleLike}/>
@@ -61,6 +86,7 @@ const Home = () => {
         {message && <Message msg = {message} type = "success"/>}
         </div>
           <Link className = 'btn' to = {`/photos/${photo._id}`}>Ver mais</Link>
+          {(showLoading && index === visiblePhotos - 1) && <Loading />} {/* Exibe o componente Loading após cada 5 fotos */}
         </div>
       ))}
       {photos && photos.length === 0 && (
