@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 
 
 
-const app = express()
+const app = express();
 
 // config JSON and form data reponse
 app.use(express.json())
