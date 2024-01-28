@@ -3,3 +3,4 @@ uploads/photos/*.png
 uploads/photos/*.jpg
 uploads/users/*.png
 uploads/users/*.jpg
+.env

@@ -92,7 +92,7 @@ const Photo = () => {
                     <div className="author">
                       
                       { 
-                         <img src = {comment.userImage} alt = {comment.userName}/>
+                         <img src = {`${comment.userImage}`} alt = {comment.userName}/>
 
                         }
 
