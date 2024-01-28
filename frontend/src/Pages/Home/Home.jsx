@@ -48,13 +48,13 @@ const Home = () => {
   };
 
   const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
-    ) {
-      setShowLoading(true);
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
   
-      // Adiando o aumento da variável visiblePhotos por 2 segundos
+    if (scrollTop + windowHeight >= scrollHeight - 50) {
+      // Tempo
+      setShowLoading(true);
       setTimeout(() => {
         setVisiblePhotos((prevVisiblePhotos) => prevVisiblePhotos + 5);
         setShowLoading(false);
@@ -86,7 +86,7 @@ const Home = () => {
         {message && <Message msg = {message} type = "success"/>}
         </div>
           <Link className = 'btn' to = {`/photos/${photo._id}`}>Ver mais</Link>
-          {(showLoading && index === visiblePhotos - 1) && <Loading />} {/* Exibe o componente Loading após cada 5 fotos */}
+          {(showLoading && index === visiblePhotos - 1) && <Loading />} {/* Exibir component de Loading*/}
         </div>
       ))}
       {photos && photos.length === 0 && (
