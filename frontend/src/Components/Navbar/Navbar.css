@@ -66,14 +66,17 @@
 
 #nav img{
     height: 20%;
-    width: 70%;
+    width: 85%;
 }
 
+#entrar, #cadastrar {
+    font-size: 0.6em;
+} 
 
 #search-form {
     position: relative;
-    margin-right: 70px;
-    width: 48%;
+    margin-right: 7vw;
+    width: 60%;
 }
 
 #search-form svg {
@@ -95,7 +98,7 @@
 #nav-links {
     display: flex;
     align-items: center;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 #nav-links li {

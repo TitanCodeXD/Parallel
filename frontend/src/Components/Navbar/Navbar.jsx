@@ -81,11 +81,11 @@ const Navbar = () => {
               </>
             ) : (
               <>
-              <li>
+              <li id = "entrar">
             <NavLink to = '/login'>Entrar</NavLink>
             </li>
 
-            <li>
+            <li id = "cadastrar">
             <NavLink to = '/register'>Cadastrar</NavLink>
             </li>
               </>
