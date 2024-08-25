@@ -8,7 +8,15 @@ import { FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer id="footer">
-      <p>Parallel &copy; 2024.</p>
+      <p>
+        <a
+          href="https://github.com/TitanCodeXD/Parallel/tree/master"
+          target="_blank"
+        >
+          Parallel <FaGithub />
+        </a>{" "}
+        &copy; 2024
+      </p>
       <p>
         Created by{" "}
         <a href="https://github.com/TitanCodeXD" target="_blank">
