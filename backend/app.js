@@ -1,23 +1,24 @@
-require("dotenv").config()
+require("dotenv").config();
 
-const express = require("express")
-const path = require("path")
-const cors = require("cors")
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
 
 const port = process.env.PORT || 5000;
-
-
 
 const app = express();
 
 // config JSON and form data reponse
-app.use(express.json())
-app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Solve CORS
-app.use(cors({credentials: true, 
-    origin: "*", //Padrão "http://localhost:3000" - "https://parallel-service.onrender.com" - "*"
-})); 
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://parallel-service.onrender.com", //Padrão "http://localhost:3000" - "https://parallel-service.onrender.com" - "*"
+  })
+);
 
 // Upload directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
@@ -25,13 +26,13 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 // DB Conecction
 require("./config/db.js");
 
-// routes 
+// routes
 const router = require("./routes/Router.js");
 
-app.use(router)
+app.use(router);
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`)
+  console.log(`Server is running on http://localhost:${port}`);
 });
 
 console.log("PORT:", process.env.PORT);
