@@ -1,3 +1,6 @@
+## Link do Site - Deploy
+http://parallel-two.vercel.app
+
 # Parallel
 Um site voltado para o estudo e prática do React, Express, Mongoose e AWS S3 de armazenamento em Nuvem. Com a ideia de ser uma espécie de 'Instagram', tendo Registro, possibilidade de Postar fotos, criar perfil, comentar fotos e curtir.
 
@@ -30,8 +33,6 @@ Ir até a pasta `Backend` e executar o comando `node run server`
 ### Frontend
 Ir até a pasta `Frontend` e executar o comando `node run dev`
 
-## Link do Site - Deploy
-http://parallel-two.vercel.app
 
 
 
