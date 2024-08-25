@@ -84,7 +84,7 @@ const Login = () => {
           {loading && (
             <input
               type="submit"
-              value="Aguarde...Pode demorar um pouco"
+              value="Aguarde... Pode demorar um pouco"
               disabled
             ></input>
           )}
