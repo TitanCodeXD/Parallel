@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
     credentials: true,
-    origin: "https://parallel-service.onrender.com", //Padrão "http://localhost:3000" - "https://parallel-service.onrender.com" - "*"
+    origin: "*", //Padrão "http://localhost:3000" - "https://parallel-service.onrender.com" - "*"
   })
 );
 
